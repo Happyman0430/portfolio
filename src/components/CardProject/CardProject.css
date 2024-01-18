@@ -1,0 +1,155 @@
+.card img {
+  width: 100%;
+  height: auto;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.content {
+  width: 500px;
+  height: 260px;
+  text-align: center;
+  position: relative;
+  transition: all 2.25s;
+  background-color: rgb(127, 204, 240);
+  padding: 5em;
+  transform-style: preserve-3d;
+}
+
+@media screen and (max-width: 1060px) {
+  .content {
+    width: calc(48vw);
+    height: 300px;
+    margin-bottom: 50px;
+  }
+  .descriptionBackContainer {
+    overflow: hidden;
+  }
+  .description {
+    overflow-y: auto;
+    max-height: 100px;
+  }
+}
+
+.card:hover .content {
+  transform: rotateY(0.5turn);
+}
+.front p {
+  padding: 30px 0 8px;
+  position: relative;
+}
+
+.front p::before {
+  content: "";
+  position: absolute;
+  left: 40%;
+  bottom: 10px;
+  width: 150px;
+  height: 14px;
+  transform: skew(-12deg) translateX(-50%);
+  background: linear-gradient(to left, var(--white), var(--violet) 100%);
+  z-index: -1;
+}
+.front {
+  /* text-decoration: overline var(--white); */
+  padding: 2em;
+  font-family: "Dancing Script", cursive;
+}
+.front,
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.title {
+  transform: translateZ(5rem);
+  font-size: 2rem;
+}
+
+.subtitle {
+  transform: translateZ(2rem);
+}
+
+.back {
+  transform: rotateY(0.5turn);
+  background-color: var(--blue);
+  border: 1px solid rgb(236, 236, 236);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.description {
+  transform: translateZ(3rem);
+}
+.descriptionBackContainer {
+  color: var(--white);
+  margin-top: 10px;
+}
+.tecnologiasTitulo {
+  text-decoration: underline;
+  margin-bottom: 5px;
+}
+.tecnologiasContainer {
+  background-color: #005d6b;
+  padding: 5px 0 5px 0;
+  border-top: 1px solid rgb(236, 236, 236);
+  color: var(--white);
+}
+.container-buttons-card {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container-buttons-card button {
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+  color: var(--blue);
+  border: none;
+  margin-top: 20px;
+  margin-left: 5px;
+  padding: 3px 10px 3px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+  overflow: hidden;
+}
+.container-buttons-card button:before,
+.container-buttons-card button::after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  left: 100%;
+  top: 1%;
+}
+
+.container-buttons-card button::after {
+  left: -100%;
+  -webkit-clip-path: polygon(10% 0, 70% 0, 90% 100%, 30% 100%);
+  clip-path: polygon(10% 0, 70% 0, 90% 100%, 30% 100%);
+  background-color: rgba(70, 212, 255, 0.6);
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.container-buttons-card button:hover::after {
+  left: 100%;
+  top: 1%;
+}
+
+.container-buttons-card button svg {
+  margin-right: 5px;
+}
